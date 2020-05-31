@@ -11,7 +11,8 @@ use App\singleton\classes\Singleton;
 //Singleton pattern (Одиночка)
 echo Singleton::getInstance();
 echo Singleton::getInstance() === Singleton::getInstance() ? "\nДанные верны!" : "\nКод работает неверно.";
-echo "\n" . Singleton::getInstance(true);
+// Добавлена возможность изменить значение внтури класса, хотя такой функции не должно быть :) Просто так сделал
+echo "\n\n" . Singleton::getInstance(true);
 echo "\n" . Singleton::getInstance(true) . "\n\n";
 
 

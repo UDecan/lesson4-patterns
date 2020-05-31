@@ -4,8 +4,19 @@ namespace App\proxy\classes;
 
 class Employee
 {
+    /**
+     * @var string
+     */
     protected string $Username;
+
+    /**
+     * @var string
+     */
     protected string $Password;
+
+    /**
+     * @var string
+     */
     protected string $Role;
 
     /**

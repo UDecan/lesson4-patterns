@@ -8,8 +8,14 @@ use App\proxy\interfaces\SharedFolderInterface;
 
 class SharedFolderProxy implements SharedFolderInterface
 {
+    /**
+     * @var SharedFolderInterface
+     */
     protected SharedFolderInterface $folder;
 
+    /**
+     * @var Employee
+     */
     protected Employee $employee;
 
     /**
@@ -20,7 +26,9 @@ class SharedFolderProxy implements SharedFolderInterface
         $this->employee = $emp;
     }
 
-
+    /**
+     * @return string
+     */
     public function PerformRWOperations(): string
     {
         if (strtoupper($this->employee->getRole()) == "CEO" || strtoupper($this->employee->getRole()) == "MANAGER") {

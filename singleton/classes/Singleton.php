@@ -6,7 +6,14 @@ use App\singleton\interfaces\SingletonInterface;
 
 class Singleton implements SingletonInterface
 {
+    /**
+     * @var int
+     */
     protected static int $counter = 0;
+
+    /**
+     * @var Singleton|null
+     */
     protected static ?Singleton  $instance = null;
 
     /**
@@ -16,7 +23,6 @@ class Singleton implements SingletonInterface
     {
         self::$counter++;
     }
-
 
     /**
      * @param bool $flag
@@ -45,11 +51,20 @@ class Singleton implements SingletonInterface
     /**
      * @throws \Exception
      */
-    public function __wakeup()
-    {
+    public function __wakeup(){
         throw new \Exception("Невозможно в текущей архитектуре.");
     }
 
+    /**
+     * @throws \Exception
+     */
+    protected function __clone(){
+        throw new \Exception("Невозможно в текущей архитектуре.");
+    }
+
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
         return "Человек купил автомобиль.\nВсего автомобилей у человека: " . self::$counter;
